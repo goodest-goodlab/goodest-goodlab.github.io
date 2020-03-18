@@ -457,7 +457,7 @@ html_template = """
 								<p>
 									Currently the Griz head and login nodes do not have server-wide installs of GNU parallel, but the
 									compute nodes do, so you will be able to run jobs that call <code>parallel</code>. To debug these
-									workflows, you could <a href="https://www.gnu.org/software/parallel/" target="_blank>download</a>
+									workflows, you could <a href="https://www.gnu.org/software/parallel/" target="_blank">download</a>
 									and install GNU parallel in your home directory, or login to a compute node interactively (see:
 									<a href="jobs.html">Running Jobs</a>.)
 								</p>
