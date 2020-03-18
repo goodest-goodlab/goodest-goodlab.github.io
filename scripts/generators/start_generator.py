@@ -353,44 +353,47 @@ html_template = """
 
 	############################################################
 
-	print("#!/bin/bash");
+	print("#!/bin/bash")
 	# I like to print the bash shebang line so the output can be read as a
 	# bash script to run commands one at a time if necessary
 
-	print("# Example command generator");
+	print("# Example command generator")
 	# A descriptive message about what these commands are
 
-	print("# PYTHON VERSION: " + ".".join(map(str, sys.version_info[:3])));
-	print("# Script call: " + " ".join(sys.argv));
-	print("# Runtime: " + datetime.datetime.now().strftime("%m/%d/%Y %H:%M:%S"));
-	print("# ----------");
-	# Always good to include some runtime info for records
-
-	indir = "/projects/project/aligns/";
-	outdir = "/projects/project/gene-trees/";
+	indir = "/projects/project/aligns/"
+	outdir = "/projects/project/gene-trees/"
 	# Specify both the location of the input files and the desired
 	# location for the output files.
 
+	print("# PYTHON VERSION: " + ".".join(map(str, sys.version_info[:3])))
+	print("# Script call: " + " ".join(sys.argv))
+	print("# Runtime: " + datetime.datetime.now().strftime("%m/%d/%Y %H:%M:%S"))
+	print("# Input directory: " + indir)
+	print("# Output directlory: " + outdir)
+	print("# ----------");
+	# Always good to include some runtime info for records
+
 	aa_model = "PROTGAMMAJTTF"
+	# The RAxML sequence evolution model for all runs.
 
 	for f in os.listdir(indir):
 		if not f.endswith("-aln.fa"):
 			continue;
 
-		input_file = os.path.join(indir, f);
+		input_file = os.path.join(indir, f)
 		# Input file.
 
-		aln_name = os.path.splitext(f)[0];
+		aln_name = os.path.splitext(f)[0]
 		# Get the filename without the extension as the alignment name.
 
-		output_directory = os.path.join(outdir, aln_name);
+		output_directory = os.path.join(outdir, aln_name)
 		# Output directory.
 
 		if not os.path.isdir(output_directory):
 			os.system("mkdir " + output_directory)
 		# If the output directory doesn't exist, create it.
 
-		seed = str(random.randint(1000000,999999999));
+		seed = str(random.randint(1000000,999999999))
 		# Generate the starting seed for RAxML.
 
 		####
@@ -415,7 +418,7 @@ html_template = """
 		# This can all be done on one line, but I broke it up for clarity.
 		####
 
-		print(raxml_cmd);
+		print(raxml_cmd)
 </pre>
 
 					<p>Run this script and redirect the output to a file to generate a shell script that can execute all of these commands:</p>
@@ -423,6 +426,12 @@ html_template = """
 					<code>python example_cmd_generator.py > raxml_cmds.sh</code>
 
 					<p>Now you have a shell script to run these commands and, importantly, you can use <code>parallel</code> to run them in parallel!</p>
+
+					<p>
+						Note that you can use this sort of script for any type of command you have to run multiple times, not just RAxML. Say I had many samples that
+						I needed to map with BWA, I could simply replace the steps constructing the RAxML command with those appropriate for BWA.
+					</p>
+						
 
 					<a name="parallel-run"></a>
 					<div id="section_sep_top"></div>
