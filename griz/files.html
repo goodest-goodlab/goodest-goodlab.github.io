@@ -1,0 +1,150 @@
+
+<!doctype html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">	
+    <link rel='shortcut icon' href='../img/favicon.ico' type='image/x-icon'/ >
+    <link type="text/css" rel="stylesheet" href="../css/pure.css"  media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="../css/global.css"  media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="../css/servers.css"  media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="../css/griz.css"  media="screen,projection" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet"> 
+    <title>Griz - File Info</title>
+</head>
+
+<body>
+	<div class="pure-u-24-24" id="header">Good lab Griz cluster docs &mdash; File info</div>
+
+		<div class="pure-g" id="desktop_nav">
+		<div class="pure-u-1-24" id="margin"></div>
+			<div class="pure-u-3-24" id="nav_link_cell"><a class="nav_link" href="../servers.html">All servers</a></div>
+			<div class="pure-u-3-24" id="nav_link_cell"><a class="nav_link" href="start.html">Getting Started</a></div>
+			<div class="pure-u-4-24" id="nav_link_cell_active"><a class="nav_link" id="active" href="#">Transfer & store files</a></div>
+			<div class="pure-u-4-24" id="nav_link_cell"><a class="nav_link" href="install.html">Installing software</a></div>
+			<div class="pure-u-3-24" id="nav_link_cell"><a class="nav_link" href="jobs.html">Run jobs</a></div>
+			<div class="pure-u-3-24" id="nav_link_cell"><a class="nav_link" href="nodes.html">Node info</a></div>
+			<div class="pure-u-2-24" id="nav_link_cell"><a class="nav_link" href="links.html">Links</a></div>
+		<div class="pure-u-1-24" id="margin"></div>
+	</div>
+
+	<div class="pure-g" id="mobile_nav">
+		<div class="pure-u-24-24 dropdown" id="nav_link_cell">
+			<a href="#" class="nav_link"><img class="pure_img" id="mobile_logo_nav" src="../img/nav.png"></a>
+			<div class="dropdown_container mobile_drop">
+				<ul class="pure-menu-list">
+					<li><a href="../servers.html" id="mobile_nav_link">All servers</a></li>
+					<li><a href="start.html" id="mobile_nav_link">Getting Started</a></li>
+					<li><a href="files.html" id="mobile_nav_link">Transfer & store file</a></li>
+					<li><a href="install.html" id="mobile_nav_link">Installing software</a></li>
+					<li><a href="jobs.html" id="mobile_nav_link">Run jobs</a></li>
+					<li><a href="nodes.html" id="mobile_nav_link">Node info</a></li>
+					<li><a href="links.html" id="mobile_nav_link">Links</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="pure-u-24-24" id="server_sep_div"></div>
+	<div class="pure-g" id="griz_head_row">
+		<div class="pure-u-4-24" id="margin"></div>
+		<div class="pure-u-4-24" id="griz_img_cont">
+			<img class="pure-img" id="griz_img" src="../img/logo/griz.png">
+		</div>
+
+		<div class="pure-u-12-24" id="griz_title">
+			<h1>Transferring and Storing files</h1>
+		</div>
+		<div class="pure-u-4-24" id="margin"></div>
+	</div>
+
+	<div class="pure-g" id="griz_main_div">
+		<div class="pure-u-24-24" id="server_sep_div"></div>
+		<div class="pure-u-2-24" id="margin"></div>
+		<div class="pure-u-20-24" id="griz_main_row">
+
+		<div class="pure-g">
+			<div class="pure-u-2-24" id="margin"></div>
+			<div class="pure-u-20-24" id="server_row">
+				<div id="griz_node_desc">
+				
+					<a name="store"></a>
+					<div id="section_sep_top"></div>
+					<div id="section_sep_btm"></div>
+					<h2>Storing files on Griz</h2>
+
+					<p>Currently, the main storage space on the Griz cluster is the 
+						<a href="https://www.beegfs.io/content/" target="_blank"><code>beegfs</code></a> file system. This system has 800TB of 
+						storage and will likely turn into scratch space in the future. In the meantime, we have a pretty free reign here, so go 
+						ahead and make a folder there and store stuff.
+					</p>
+
+					<div id="msg_cont">
+						<div id="msg">
+							<div id="msg_banner">Important!</div>
+							<div id="msg_text">
+								<p>Make sure this isn't the only place you are storing your data! Best practice is to have at least 2 backups.</p>
+							</div>
+						</div>
+					</div>
+
+					<p>Navigate to /mnt/beegfs/:</p>
+
+					<code>cd /mnt/beegfs/</code>
+
+					<p>Create a directory the same as your username (NetID):</p>
+
+					<code>mkdir gt156213e</code>
+
+					<p>And enjoy the space!</p>
+
+
+					<a name="transfer"></a>	
+					<div id="section_sep_top"></div>
+					<div id="section_line"></div>
+					<div id="section_sep_btm"></div>
+
+					<h2>Transferring files to Griz</h2>
+
+					<p>
+						Typical command line tools like <code>rsync</code> and <code>sftp</code> may be your best option for transferring files to 
+						and from Griz. For example, a typical rsync command looks like this:
+					</p>
+
+					<code>rsync -azvh [username]@[server address]:[location on remote server] [desired destination on local server]</code>
+
+					<p>
+						As an explicit example, lets say I wanted to transfer a file called "data" in my home directory on Musculus to my 
+						home directory on Griz:
+					</p>
+
+					<code>rsync -azvh gregg_thomas@musculus.dbs.umt.edu:/home/gregg_thomas/data/ /home/gt156213e/.</code>
+
+					<p>
+						The <code>.</code> at the end indicates I want the same file/directory name in th destination. 
+						Alternateively, if I just want to transfer to my current working directory, I can just put a <code>.</code> as the destination:
+					</p>
+
+					<code>rsync -azvh gregg_thomas@musculus.dbs.umt.edu:/home/gregg_thomas/data/ .</code>
+
+					<p>When transferring files from Carnation, the port for the Good Lab docker container needs to be specified as follows:</p>
+
+					<code>rsync -avzh -e 'ssh -p 2225' gregg_thomas@carnation.dbs.umt.edu:/home/gregg_thomas/data/ .</code>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="pure-u-24-24" id="sep_div"></div>
+
+
+        <div class="pure-g" id="footer">
+		<div class="pure-u-1">
+			<div id="footer_text">
+				<center>Site designed and maintained by <a href="https://gwct.github.io" target="_blank">Gregg Thomas</a> | 
+					<!-- email: <img class="pure_img" src="img/contact/cont-footer.png"> |  -->
+					<a href="https://purecss.io/" target="_blank">Pure CSS</a> | Page built: 03/18/2020 12:53:42 MDT</center>
+			</div>
+		</div>
+	</div>
+</body>
