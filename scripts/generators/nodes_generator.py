@@ -74,10 +74,14 @@ html_template = """
 					<div id="section_sep_btm"></div>
 
 					<h2>Large CPU nodes</h2>
+					<p>
+						Note that all good_lab_cpu and good_lab_gpu nodes are partitioned as good_lab_large_cpu so it is easy to request them together. This section summarizes only
+						the 8 unique good_lab_large_cpu nodes.					
+					</p>
 					<table id="sum-tab">
 						<tr><td class="td-label">Partition: </td><td>good_lab_large_cpu</td></tr>
-						<tr><td class="td-label"># nodes</td><td>??</td></tr>
-						<tr><td class="td-label">Name: </td><td>??</td></tr>
+						<tr><td class="td-label"># nodes</td><td>8</td></tr>
+						<tr><td class="td-label">Name: </td><td>compute-0-[13-20]</td></tr>
 						<tr><td class="td-label">Operating System: </td><td>CentOS Linux release 7.4.1708</td></tr>
 						<tr><td class="td-label">Processors: </td>
 							<td>
@@ -86,7 +90,7 @@ html_template = """
 									Intel(R) Xeon(R) Gold 6240 CPU @ 2.60GHz</a> (1 CPU x 8 cores per CPU x 2 threads per core)
 							</td>
 						</tr>
-						<tr><td class="td-label">Memory: </td><td>512GB</td></tr>
+						<tr><td class="td-label">Memory:td><td>200GB</td></tr>
 						<!-- <tr><td class="td-label">Storage:</td><td>200GB</td></tr> -->
 					</table>
 					<!-- good_lab_large_cpu -->
@@ -124,8 +128,8 @@ html_template = """
 					<h2>GPU nodes</h2>
 					<table id="sum-tab">
 						<tr><td class="td-label">Partition: </td><td>good_lab_gpu</td></tr>
-						<tr><td class="td-label"># nodes</td><td>8</td></tr>
-						<tr><td class="td-label">Name: </td><td>compute-1-[5-12]</td></tr>
+						<tr><td class="td-label"># nodes</td><td>12</td></tr>
+						<tr><td class="td-label">Name: </td><td>compute-1-[0-3,5-12]</td></tr>
 						<tr><td class="td-label">Operating System: </td><td>CentOS Linux release 7.4.1708</td></tr>
 						<tr><td class="td-label">Processors: </td>
 							<td>
@@ -160,9 +164,9 @@ html_template = """
 						<tr><td class="td-label">Operating System: </td><td>??</td></tr>
 						<tr><td class="td-label">Processors: </td>
 							<td>
-								<b>32 threads: </b>
-								<a href="" target="_blank">
-									</a> (1 CPU x 18 cores per CPU x 2 threads per core)
+								<b>128 threads: </b>
+								<a href="https://ark.intel.com/content/www/us/en/ark/products/93806/intel-xeon-processor-e7-4850-v4-40m-cache-2-10-ghz.html" target="_blank">
+								Intel Xeon E7-4850 v4 @ 2.10GHz</a>  (4 CPU x 16 cores per CPU x 32 threads per core)
 							</td>
 						</tr>
 						<tr><td class="td-label">Memory: </td><td>2TB</td></tr>

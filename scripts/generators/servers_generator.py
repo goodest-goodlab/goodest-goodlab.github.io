@@ -40,7 +40,13 @@ html_template = """
 							<table id="sum-tab">
 								<tr><td class="td-label">Access: </td><td>Good lab</td></tr>
 								<tr><td class="td-label">Operating System: </td><td>Linux version 4.4.0-135-generic</td></tr>
-								<tr><td class="td-label">Processor: </td><td>Intel Xeon Processor E5-2650 @ 2GHz (8 cores, 16 threads)</td></tr>
+								<tr><td class="td-label">Processor: </td>
+									<td>
+										<b>32 threads: </b>
+										<a href="https://ark.intel.com/content/www/us/en/ark/products/64590/intel-xeon-processor-e5-2650-20m-cache-2-00-ghz-8-00-gt-s-intel-qpi.html" target="_blank">
+										Intel Xeon Processor E5-2650 @ 2GHz</a> (1 CPU x 8 cores per CPU x 2 threads per core)
+									</td>
+								</tr>
 								<tr><td class="td-label">Memory: </td><td>200GB</td></tr>
 								<tr><td class="td-label">Storage:</td><td>One 40TB HDD containing one partition and several logical volumes</td></tr>
 							</table>
@@ -78,7 +84,13 @@ html_template = """
 							<table id="sum-tab">
 								<tr><td class="td-label">Access: </td><td>Good lab</td></tr>
 								<tr><td class="td-label">Operating System: </td><td>Linux version 4.4.0-109-generic</td></tr>
-								<tr><td class="td-label">Processor: </td><td>Intel Xeon Processor E5-2650 @ 2GHz (8 cores, 16 threads)</td></tr>
+								<tr><td class="td-label">Processor: </td>
+									<td>
+										<b>32 threads: </b>
+										<a href="https://ark.intel.com/content/www/us/en/ark/products/64590/intel-xeon-processor-e5-2650-20m-cache-2-00-ghz-8-00-gt-s-intel-qpi.html" target="_blank">
+											Intel Xeon Processor E5-2650 @ 2GHz</a> (1 CPU x 8 cores per CPU x 2 threads per core)
+									</td>
+								</tr>
 								<tr><td class="td-label">Memory: </td><td>200GB</td></tr>
 								<tr><td class="td-label">Storage:</td>
 									<td>
@@ -159,7 +171,13 @@ html_template = """
 							<table id="sum-tab">
 								<tr><td class="td-label">Access: </td><td><a href="http://hs.umt.edu/dbs/labs/genomics/default.php" target="_blank">Genomics Core Laboratory</a></td></tr>
 								<tr><td class="td-label">Operating System: </td><td>Linux version 4.4.0-104-generic</td></tr>
-								<tr><td class="td-label">Processor: </td><td>4 x Intel Xeon CPU E7-8860 v3 @ 2.20GHz (64 cores, 128 threads total)</td></tr>
+								<tr><td class="td-label">Processor: </td>
+									<td>
+										<b>128 threads</b>: 
+										<a href="https://ark.intel.com/content/www/us/en/ark/products/84680/intel-xeon-processor-e7-8860-v3-40m-cache-2-20-ghz.html" target="_blank">
+										Intel Xeon CPU E7-8860 v3 @ 2.20GHz</a> (4 CPUs x 16 cores per CPU x 2 threads per core)
+									</td>
+								</tr>
 								<tr><td class="td-label">Memory: </td><td>2TB</td></tr>
 								<tr><td class="td-label">Storage:</td><td>200TB</td></tr>
 								<tr><td class="td-label">Summary:</td><td><a href="http://hs.umt.edu/dbs/labs/genomics/bioinformatics/servers.php" target="_blank">http://hs.umt.edu/dbs/labs/genomics/bioinformatics/servers.php</a></td></tr>
@@ -184,7 +202,7 @@ html_template = """
 							<img class="pure-img" id="server_img" src="img/logo/reincarnation.png">
 						</div>
 						<div id="server_desc">
-							<h4>Now incorporated into the Griz cluster! See <a href="griz/nodes.html">Griz node info</a> for stats.</h4>
+							<h4>Now incorporated into the Griz cluster! See <a href="griz/nodes.html#reincarnation">Griz node info</a> for stats.</h4>
 						</div>
 					</div>
 					<div class="pure-u-2-24" id="margin"></div>
