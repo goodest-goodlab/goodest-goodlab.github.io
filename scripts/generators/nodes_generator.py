@@ -161,12 +161,12 @@ html_template = """
 						<tr><td class="td-label">Partition: </td><td>good_lab_reincarnation</td></tr>
 						<tr><td class="td-label"># nodes</td><td>1</td></tr>
 						<tr><td class="td-label">Name: </td><td>compute-2-1</td></tr>
-						<tr><td class="td-label">Operating System: </td><td>??</td></tr>
+						<tr><td class="td-label">Operating System: </td><td>CentOS Linux release 7.4.1708</td></tr>
 						<tr><td class="td-label">Processors: </td>
 							<td>
 								<b>128 threads: </b>
 								<a href="https://ark.intel.com/content/www/us/en/ark/products/93806/intel-xeon-processor-e7-4850-v4-40m-cache-2-10-ghz.html" target="_blank">
-								Intel Xeon E7-4850 v4 @ 2.10GHz</a>  (4 CPU x 16 cores per CPU x 32 threads per core)
+								Intel Xeon E7-4850 v4 @ 2.10GHz</a>  (4 CPU x 16 cores per CPU x 2 threads per core)
 							</td>
 						</tr>
 						<tr><td class="td-label">Memory: </td><td>2TB</td></tr>

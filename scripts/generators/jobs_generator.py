@@ -86,7 +86,8 @@ html_template = """
 	#SBATCH --mail-type=ALL
 	#SBATCH --partition=good_lab_cpu
 	#SBATCH --nodes=1
-	#SBATCH --ntasks=4
+	#SBATCH --ntasks=1
+	#SBATCH --cpus-per-task=4
 	#SBATCH --mem=96000
 	#SBATCH --time=2:30:00 # How long should they run
 	## Above is all information for SLURM. It should all appear at the top of
@@ -121,8 +122,9 @@ html_template = """
 	--mail-user:	An email address to receive updates from SLURM about job progress.
 	--mail-type:	What type of email updates you'd like to receive (NONE, BEGIN, END, FAIL, ALL).
 	--partition:	The type of node you want to run your job on. See <a href="nodes.html">Node info</a>.
-	--nodes:	Minimum number of nodes you will need for the job.
-	--ntasks:	Number of threads(?) you need for your job.
+	--nodes:	Number of nodes you will need for the job.
+	--ntasks:	Number of tasks you need for your job. Each command is a task. If you run commands with parallel or srun, set this to be the number of commands you want to run simultaneously.
+	--cpus-per-task:Number of threads available for each command. If you run a program that is multithreaded, set this to be the number of threads specified by that program.
 	--mem:		The amount of memory you need for you job. Default unit is MB.
 	--time: 	The amount of time needed for your job to run. <b>Ignore for now!</b>
 </pre>

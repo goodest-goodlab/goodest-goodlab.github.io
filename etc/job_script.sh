@@ -5,7 +5,8 @@
 #SBATCH --mail-type=ALL
 #SBATCH --partition=good_lab_cpu
 #SBATCH --nodes=1
-#SBATCH --ntasks=4
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=4
 #SBATCH --mem=96000
 #SBATCH --time=2:30:00 # How long should they run
 ## This is all information for SLURM. It should all appear at the top of

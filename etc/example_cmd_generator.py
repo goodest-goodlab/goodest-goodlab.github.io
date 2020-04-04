@@ -23,7 +23,7 @@ print("# PYTHON VERSION: " + ".".join(map(str, sys.version_info[:3])))
 print("# Script call: " + " ".join(sys.argv))
 print("# Runtime: " + datetime.datetime.now().strftime("%m/%d/%Y %H:%M:%S"))
 print("# Input directory: " + indir)
-print("# Output directlory: " + outdir)
+print("# Output directory: " + outdir)
 print("# ----------");
 # Always good to include some runtime info for records
 
