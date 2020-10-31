@@ -159,6 +159,29 @@ html_template = """
 
 					<p>A job can be cancelled by running <code>scancel [job id]</code></p>
 
+					<p>
+						I have also provided a script called <code>sres</code> that checks node resource availability in the <a href="https://github.com/goodest-goodlab/good-utils> target="_blank">good-utils</a>
+						repository. Simply clone the repository and add it to your $PATH to run:
+					</p>
+
+					<p>By default <code>sres</code> prints information for all Good Lab partitions. You can provide it with the name of a particular partition to print out info only for that one</p>
+
+					<p>For example:</p>
+
+					<code>sres good_lab_cpu</code>
+
+					<p>should produce the following output:</p>
+
+<pre>NODE NAME     PARTITION(S)                    TOTAL CPUs    ALLOCATED CPUs    FREE CPUs    TOTAL MEM (MB)    ALLOCATED MEM (MB)    FREE MEM (MB)    STATE
+compute-0-1   good_lab_cpu,good_lab_large_cpu 72            0                 72           772439            0                     765683           IDLE
+compute-0-2   good_lab_cpu,good_lab_large_cpu 72            0                 72           772439            0                     755300           IDLE
+compute-0-3   good_lab_cpu,good_lab_large_cpu 72            0                 72           772439            0                     692035           IDLE
+compute-0-4   good_lab_cpu,good_lab_large_cpu 72            0                 72           772439            0                     722757           IDLE
+compute-0-5   good_lab_cpu,good_lab_large_cpu 72            0                 72           772439            0                     765922           IDLE
+compute-0-6   good_lab_cpu,good_lab_large_cpu 72            0                 72           772439            0                     752593           IDLE
+compute-0-7   good_lab_cpu,good_lab_large_cpu 72            0                 72           772439            0                     753552           IDLE
+compute-0-8   good_lab_cpu,good_lab_large_cpu 72            69                3            772439            0                     23577            MIXED
+</pre
 
 					<a name="interact"></a>
 					<div id="section_sep_top"></div>
@@ -202,7 +225,7 @@ html_template = """
 
 					<p></p>
 
-					<div id="msg_cont">
+					<!-- <div id="msg_cont">
 						<div id="msg">
 							<div id="rec_banner">Recommendation</div>
 							<div id="rec_text">
@@ -218,6 +241,18 @@ html_template = """
 									Run <code>interact [node type]</code> to specify a different node type (i.e. <code>interact good_lab_reincarnation</code>).
 								</p>
 
+							</div>
+						</div>
+					</div> -->
+
+					<div id="msg_cont">
+						<div id="msg">
+							<div id="rec_banner">Recommendation</div>
+							<div id="rec_text">
+								<p>
+									Download the <a href="https://github.com/goodest-goodlab/good-utils> target="_blank">good-utils</a> repository, which includes 
+									the <code>interact</code> command to request interactive node allocations. Use <code>interact -h</code> to see its usage.
+								</p>
 							</div>
 						</div>
 					</div>

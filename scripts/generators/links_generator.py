@@ -43,9 +43,7 @@ html_template = """
 			<div class="pure-u-20-24" id="server_row">
 				<div id="griz_node_desc">
 
-				<p>Here I will compile some helpful links</p>
-
-				<h2>Under Construction!</h2>
+				<h2><a href="https://github.com/goodest-goodlab/good-utils> target="_blank">good-utils</a> - A repository of helpful custom commands for the Good Lab</h2>
 
 				</div>
 			</div>
