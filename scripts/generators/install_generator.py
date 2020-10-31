@@ -264,6 +264,21 @@ html_template = """
 						Package installations may be a bit slower and show some bioconda messages/warnings, but they should still work. Let me know if you run into any problems!
 					</p>
 
+					<div id="msg_cont">
+						<div id="msg">
+							<div id="rec_banner">Recommendation</div>
+							<div id="rec_text">
+								<p>
+									It may be helpful to install R in a separate conda environment from your main one.
+								</p>
+								<center><code>source ~/anaconda3/bin/activate</code></center>
+								<center><code>conda activate [env name]</code></center>
+								<p></p>
+
+							</div>
+						</div>
+					</div>
+
 				</div>
 			</div>
 		</div>

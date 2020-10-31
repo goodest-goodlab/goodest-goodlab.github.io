@@ -45,17 +45,19 @@ html_template = """
 
 					<a name="login"></a>	
 					<p>
-						Griz has two nodes to which we can login and interact with the cluster, either by ssh or FTP:
+						Griz has a login node to interact with the cluster, either by ssh or FTP:
 					</p>
 <pre>
-	Head node:	griz.gscc.umt.edu (on campus access only)
-	Login node:	login.gscc.umt.edu (on campus access with off campus access available soon)
+	Login node:	login.gscc.umt.edu
 </pre>
 
 					<p>
-						Both of these nodes can be used to navigate the file system and submit jobs. Until the login node is setup for 
-						off-campus access you will need to login to UM's VPN before attempting to log on to one of the log in nodes when 
-						not on campus:
+						This node can be used to navigate the file system and submit jobs. Do not submit jobs to this node.
+					</p>
+
+					<p>
+						While the login node is available both on and off-campus, other resources may require you to be on-campus. For off-campus access, be sure
+						to read up on UM's VPN resource:
 					</p>
 
 					<div id="imp_link_cont">
@@ -81,7 +83,7 @@ html_template = """
 
 					<p>Explicitly, if I wanted to log in to the head node, I would type:</p>
 
-					<code>ssh gt156213e@griz.gscc.umt.edu</code>
+					<code>ssh gt156213e@login.gscc.umt.edu</code>
 
 					<p></p>
 
@@ -110,7 +112,7 @@ html_template = """
 					<h2>FTP logins</h2>
 
 					<p>
-						For drag-and-drop file transfers, and FTP client may be preferred. I recommend 
+						For drag-and-drop file transfers, an FTP client may be preferred. I recommend 
 						<a href="https://filezilla-project.org/" target="_blank">FileZilla</a> for MacOS and Linux and
 						<a href="https://winscp.net/eng/index.php" target="_blank">WinSCP</a> for Windows.
 					</p>
@@ -144,18 +146,19 @@ html_template = """
 					<div id="section_line"></div>
 					<div id="section_sep_btm"></div>
 
-					<h2>TightVNC Remote Desktop logins</h2>
+					<h2>Remote Desktop logins</h2>
 
 					<p>
-						We also have available to us remote desktop software called TightVNC:
+						Remote desktop logins can also be setup. Please contact one of the administrators to get it set up. I recommend the remote desktop software called
+						X2Go:
 					</p>
 					
 					<div id="imp_link_cont">
-						<a id="imp_link" href="https://www.tightvnc.com/download.html" target="_blank">TightVNC Download</a>
+						<a id="imp_link" href="https://wiki.x2go.org/doku.php/download:start" target="_blank">X2Go Download</a>
 					</div>
 
 					<p>
-						Using TightVNC, you will be able to login to one of the nodes and be able to interact with the filesystem with 
+						Using X2Go, you will be able to login to one of the nodes and be able to interact with the filesystem with 
 						your mouse and keyboard as if you were sitting at the remote node with a monitor. You can even interact 
 						with the <a href="jobs.html">SLURM job management software</a> from the remote desktop and open a terminal
 						from within the remote desktop.
@@ -458,8 +461,23 @@ html_template = """
 									Currently the Griz head and login nodes do not have server-wide installs of GNU parallel, but the
 									compute nodes do, so you will be able to run jobs that call <code>parallel</code>. To debug these
 									workflows, you could <a href="https://www.gnu.org/software/parallel/" target="_blank">download</a>
-									and install GNU parallel in your home directory, or login to a compute node interactively (see:
+									and install GNU parallel in your home directory, <a href=https://anaconda.org/conda-forge/parallel">install GNU Parallel from conda</a> 
+									(recommended), or login to a compute node interactively (see:
 									<a href="jobs.html">Running Jobs</a>.)
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="pure-u-24-24" id="sep_div"></div>
+
+					<div id="msg_cont">
+						<div id="msg">
+							<div id="msg_banner">Important!</div>
+							<div id="msg_text">
+								<p>
+									When submitting jobs to a Griz node that use <code>parallel</code>, the number of <b>tasks</b> should
+									match the number of parallel jobs (<code>-j</code>), not the number of cpus.
 								</p>
 							</div>
 						</div>

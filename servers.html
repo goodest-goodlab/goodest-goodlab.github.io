@@ -60,12 +60,13 @@
 
 							<table id="sum-tab">
 								<tr><td class="td-label">Access: </td><td>Good lab</td></tr>
+								<tr><td class="td-label">Purpose: </td><td>Main Good lab server for running jobs.</td></tr>
 								<tr><td class="td-label">Operating System: </td><td>Linux version 4.4.0-135-generic</td></tr>
 								<tr><td class="td-label">Processor: </td>
 									<td>
 										<b>32 threads: </b>
 										<a href="https://ark.intel.com/content/www/us/en/ark/products/64590/intel-xeon-processor-e5-2650-20m-cache-2-00-ghz-8-00-gt-s-intel-qpi.html" target="_blank">
-										Intel Xeon Processor E5-2650 @ 2GHz</a> (1 CPU x 8 cores per CPU x 2 threads per core)
+										Intel Xeon Processor E5-2650 @ 2GHz</a> (2 CPUs x 8 cores per CPU x 2 threads per core)
 									</td>
 								</tr>
 								<tr><td class="td-label">Memory: </td><td>200GB</td></tr>
@@ -104,26 +105,25 @@
 
 							<table id="sum-tab">
 								<tr><td class="td-label">Access: </td><td>Good lab</td></tr>
+								<tr><td class="td-label">Purpose: </td><td>Main Good lab server for active data storage.</td></tr>
 								<tr><td class="td-label">Operating System: </td><td>Linux version 4.4.0-109-generic</td></tr>
 								<tr><td class="td-label">Processor: </td>
 									<td>
 										<b>32 threads: </b>
 										<a href="https://ark.intel.com/content/www/us/en/ark/products/64590/intel-xeon-processor-e5-2650-20m-cache-2-00-ghz-8-00-gt-s-intel-qpi.html" target="_blank">
-											Intel Xeon Processor E5-2650 @ 2GHz</a> (1 CPU x 8 cores per CPU x 2 threads per core)
+											Intel Xeon Processor E5-2650 @ 2GHz</a> (2 CPUs x 8 cores per CPU x 2 threads per core)
 									</td>
 								</tr>
 								<tr><td class="td-label">Memory: </td><td>200GB</td></tr>
 								<tr><td class="td-label">Storage:</td>
 									<td>
-										One 12TB HDD containing several partitions, including the OS</br>
-										One 12TB HDD containing one partition</br>
-										One 4TB HDD containing one partition</br>
-										One 4TB HDD containing one partition</br>
+										30TB partition for data</br>
+										2TB partition for users</br>
 									</td>
 								</tr>
 							</table>
 
-							<center>
+							<!--<center>
 							<table id="vol-tab">
 								<thead><th>Partition name</th><th>Path</th><th>Capactity</th></thead>
 								<tr><td><em>home</em></td><td>/home</td><td>3.3TB</td></tr>
@@ -132,7 +132,7 @@
 								<tr><td><em>scratch2</em></td><td>/scratch/2</td><td>3.7TB</td></tr>
 								<tr><td><em>scratch3</em></td><td>/scratch/3</td><td>3.7TB</td></tr>
 							</table>
-							</center>
+							</center>-->
 						</div>
 					</div>
 					<div class="pure-u-2-24" id="margin"></div>
@@ -152,13 +152,13 @@
 							<img class="pure-img" id="server_img" src="img/logo/rat.png">
 						</div>
 						<div id="server_desc">
-							<h1>(Coming soon!)</h1>
+							<h1>lepus.dbs.umt.edu:22</h1>
 
 							<table id="sum-tab">
-								<tr><td class="td-label">Access: </td><td>Good lab</td></tr>
-								<tr><td class="td-label">Operating System: </td><td></td></tr>
+								<tr><td class="td-label">Access: </td><td>Admin FTP access only</td></tr>
+								<!-- <tr><td class="td-label">Operating System: </td><td></td></tr>
 								<tr><td class="td-label">Processor: </td><td></td></tr>
-								<tr><td class="td-label">Memory: </td><td></td></tr>
+								<tr><td class="td-label">Memory: </td><td></td></tr> -->
 								<tr><td class="td-label">Storage:</td><td>12 HDD x 16TB (192TB) Network attached storage</td>
 								</tr>
 							</table>
@@ -244,15 +244,13 @@
 							<img class="pure-img" id="server_img" src="img/logo/griz.png">
 						</div>
 						<div id="server_desc">
-							<h1>griz.gscc.umt.edu</h1>
+							<h1>login.gscc.umt.edu</h1>
 
 							<table id="sum-tab">
-								<tr><td class="td-label">Access: </td><td>University-wide</td></tr>
+								<tr><td class="td-label">Access: </td><td>Limited currently, University-wide eventually</td></tr>
 								<tr><td class="td-label">Summary:</td><td><a href="http://docs.gscc.umt.edu/overview/hardware/" target="_blank">Griz docs</a></td></tr>
 								<tr><td class="td-label">Login info: </td><td>NetID and password</td></tr>
-								<tr><td class="td-label">On campus login: </td><td>griz.gscc.umt.edu (head node)</td></tr>
-								<tr><td class="td-label">Off campus login: </td><td><strike>login.gscc.umt.edu (login node)</strike> <-- Not yet available. Use VPN and login to head node when off campus.</td></tr>
-								<tr><td class="td-label">Operating System: </td><td>CentOS 7.x</td></tr>
+								<tr><td class="td-label">Compute info: </td><td>See <a href="griz/nodes.html#reincarnation">Griz node info</a> for stats.</td></tr>
 							</table>
 						</div>
 					</div>
@@ -308,7 +306,7 @@
 			<div id="footer_text">
 				<center>Site designed and maintained by <a href="https://gwct.github.io" target="_blank">Gregg Thomas</a> | 
 					<!-- email: <img class="pure_img" src="img/contact/cont-footer.png"> |  -->
-					<a href="https://purecss.io/" target="_blank">Pure CSS</a> | Page built: 04/03/2020 22:34:04 MDT</center>
+					<a href="https://purecss.io/" target="_blank">Pure CSS</a> | Page built: 10/31/2020 17:27:46 MDT</center>
 			</div>
 		</div>
 	</div>
