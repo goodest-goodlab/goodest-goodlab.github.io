@@ -37,6 +37,8 @@ html_template = """
             <li><h4><a href="hifiasm_tad_report.html">hifiasm TAD report</a></h4></li>
             <li><h4><a href="UNI1803_peregrine_hirise_report.html">Peregrine hirise assembly report</a></h4></li>
             <li><h4><a href="peregrine_tad_report.html">Peregeine TAD report</a></h4></li>
+            <li><h4><a href="DTG-OmniC-263_R1_001_fastqc.html">OmniC read pair 1 FastQC report</a></h4></li>
+            <li><h4><a href="DTG-OmniC-263_R2_001_fastqc.html">OmniC read pair 2 FastQC report</a></h4></li>
         </ul>
     </div>
     <div class="col-6-24" id="margin"></div>
