@@ -373,3 +373,16 @@ the dropdowns
 	background-color:#d3d3d3;
 	margin:20px;
 }
+
+#img-row {
+	height:40vh;
+}
+
+#img-cont {
+	max-height: 40vh;
+}
+
+#hero-img {
+	max-height:40vh;
+	width:auto;
+}

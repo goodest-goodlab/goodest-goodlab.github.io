@@ -1,0 +1,201 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+            p { font-family: corbert } 
+            h4, h2 { color: #F1704A;
+                 font-family: corbert }
+        </style>
+        <img src="https://s3-us-west-2.amazonaws.com/dtg.cloud.public/dovetail-logo-white.png" width="116" height="83" class="d-inline-block align-top" alt="">
+
+    </head>
+    <body>
+        <div style="background-color: #022f4a; width: auto; height: 100px;">
+            <nav class="navbar">
+                <a class="navbar-brand pull-sm-left" style="margin-bottom: 5px;" href="#/">
+                    
+                    <img src="https://s3-us-west-2.amazonaws.com/dtg.cloud.public/dovetail-logo-white.png" width="116" height="83" class="d-inline-block align-top" alt="">
+                </a>
+            </nav>
+        </div>
+
+        <div class="col-md-12">
+            
+                <br>
+                <h2>Sample: UNI1803</h2>
+                <br>
+                <h4 >Analysis summary</h4>
+                <div class="container-fluid">
+                <div class="row">
+                <div class="col-sm">            
+                <table class="table table-striped  table-hover table-responsive" style="word-wrap: break-word">
+                    <thead>
+                        <tr>
+                            
+                                <th class="text-right">Feature </th> 
+                            
+                                <th class="text-right">Count </th> 
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                            <tr>
+                            
+                                <td align="right"> A Compartments</td>
+                            
+                                <td align="right"> 132 (50.77%)</td>
+                            
+                            </tr>
+                        
+                            <tr>
+                            
+                                <td align="right"> B Compartments</td>
+                            
+                                <td align="right"> 137 (48.77%)</td>
+                            
+                            </tr>
+                        
+                            <tr>
+                            
+                                <td align="right"> TADs at 10 kbp resolution</td>
+                            
+                                <td align="right"> 1,306</td>
+                            
+                            </tr>
+                        
+                            <tr>
+                            
+                                <td align="right"> TADs at 25 kbp resolution</td>
+                            
+                                <td align="right"> 1,864</td>
+                            
+                            </tr>
+                        
+                            <tr>
+                            
+                                <td align="right"> TADs at 50 kbp resolution</td>
+                            
+                                <td align="right"> 1,385</td>
+                            
+                            </tr>
+                        
+                            <tr>
+                            
+                                <td align="right"> Isochores</td>
+                            
+                                <td align="right"> 0</td>
+                            
+                            </tr>
+                        
+                            <tr>
+                            
+                                <td align="right"> CTCF Binding Sites</td>
+                            
+                                <td align="right"> 20,145</td>
+                            
+                            </tr>
+                        
+                    </tbody>
+                </table>
+                </div>
+                <div class="col-sm">
+                </div>
+                </div>
+                </div>
+                <h4 >TAD statistics at different resolutions</h4>
+                <div class="container-fluid">
+                <div class="row">
+                <div class="col-sm">                
+               <table class="table table-striped table-hover table-responsive" style="word-wrap: break-word">
+                    <thead>
+                        <tr>
+                            
+                               <th align="right"> Resolution (kbp)  </th> 
+                            
+                               <th align="right"> Number of TADs </th> 
+                            
+                               <th align="right"> Mean TAD Size (bp) </th> 
+                            
+                               <th align="right"> Basepairs in TADs (kbp) </th> 
+                            
+                               <th align="right"> Percent genome contained in TADs </th> 
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                            <tr>
+                            
+                                <td align="right"> 10</td>
+                            
+                                <td align="right"> 1,306</td>
+                            
+                                <td align="right"> 300,658</td>
+                            
+                                <td align="right"> 3,807</td>
+                            
+                                <td align="right"> 16.58%</td>
+                            
+                            </tr>
+                        
+                            <tr>
+                            
+                                <td align="right"> 25</td>
+                            
+                                <td align="right"> 1,864</td>
+                            
+                                <td align="right"> 625,295</td>
+                            
+                                <td align="right"> 10,582</td>
+                            
+                                <td align="right"> 46.08%</td>
+                            
+                            </tr>
+                        
+                            <tr>
+                            
+                                <td align="right"> 50</td>
+                            
+                                <td align="right"> 1,385</td>
+                            
+                                <td align="right"> 1,271,588</td>
+                            
+                                <td align="right"> 13,666</td>
+                            
+                                <td align="right"> 59.51%</td>
+                            
+                            </tr>
+                        
+                    </tbody>
+                </table>
+                </div>
+                 
+             
+	</div>
+	<br/>	
+	<h4 >Notes about data processing</h4>
+             <div class="row">
+         <ul style="list-style-type:disc;">
+             <li><b>Contact Maps </b><p>We generated Hi-C contact matrices in two formats, namely cool and hic. Both contact matrices were generated from the same BAM file by using read pairs where both ends were aligned with a  mapping quality of 60.</p></li>
+             <li><b>TADs </b><p>TADs were identified using the <code>Arrowhead</code> program implemented in the Juicertools package. We call TADs at 3 different resolutions: 10 kbp, 25 kbp, and 50 kbp. The parameters used were <code> -k KR -m 2000 -r 10000 </code>, <code>-k KR -m 2000 -r 25000</code>, and <code>-k KR -m 2000 -r 50000</code></p></li>
+              <li><b>A/B Compartments </b><p>A/B compartments were identified at 1 Mbp  using the <code>eigenvector</code> program implemented in the Juicertools package. The parameters used were <code>KR BP 1000000</code>.</p></li>
+              <li><b>Isochores </b><p>Isochores were predicted using the <code>isofinder</code> program. The parameters used were <code>0.90 p2 3000</code>. The output was post-processed to convert it to a bedpe format.</p></li>
+              <li><b>CTCF sites </b><p>CTCF sites were predicted using  the <code>cread</code> program. The position weight matrix was downloaded from CTCFBSDB 2.0 website. The output was then post-processed to convert it to a bed file.</p></li>
+              <li><b>Multires files </b><p> Multires files were generated using the <code>clodius</code> package. These files can be loaded in HiGlass: an open source visualization tool. </p></li>
+        </ul>
+    </div>
+        <br/>
+        <h4 >Glossary</h4>
+     <div class="row">
+         <ul style="list-style-type:disc;">
+              <li><b>Topologically Associated Domains (TADs) </b><p>One of the fundamental units of chromatin topology. TADs are regions of chromatin wherein all of the chromatin is in closer physical proximity. It is thought that regulatory signals can be conveyed more easily within a TAD than between TADs. TAD boundaries often occur at CTCF binding sites and are thought to be established and maintained by Cohesin/CTCF complex.</p></li>
+              <li><b>A/B compartments </b><p>The whole genome could be divided into two spatial compartments, namely A and B. A compartments are associated with active/euchromatin and B compartments are associated with inactive/heterochromatin. </p></li>
+              <li><b>Isochores </b><p>Extended genomic regions (typically 300kb to multimegabase) of uniform,  characteristic GC content.</p></li>
+              <li><b>CTCF sites </b><p>CCCTC-binding factor (CTCF) is a DNA binding protein, established as the main player in physical establishment of TAD boundaries.</p></li>
+        </ul>
+    </div>
+
+        </div>
+    </body>
+</html>
