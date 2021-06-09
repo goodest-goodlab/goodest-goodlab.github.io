@@ -147,7 +147,14 @@ html_template = """
 					<p>
 						Some information will print to the screen, and you will be asked to confirm creation of the environment. Confirm and then your environment
 						should be created! The command prompt prefix should now be the name of your environment (<code>biotools</code> in this example).
-					</p>							
+					</p>
+
+					<p>
+						In the event that you encounter Permission denied or similar errors when creating an environment, you may provide the full path to
+						the environment you want to create as the name:
+					</p>
+
+					<code>conda	create --name /path/to/anaconda3/envs/biotools</code>			
 					
 
 					<a name="env-start"></a>
@@ -195,6 +202,9 @@ html_template = """
 
 					<p>Install as much software as you like! It should all be self-contained within this environment.</p>
 
+					<p>Note that if you need a specific version of a package installed, you can specify the version number when installing as follows:</p>
+
+					<code>conda install -c bioconda samtools=1.9</code>
 
 					<a name="env-exit"></a>
 					<div id="section_sep_top"></div>	

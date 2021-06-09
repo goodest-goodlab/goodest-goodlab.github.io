@@ -173,7 +173,14 @@
 					<p>
 						Some information will print to the screen, and you will be asked to confirm creation of the environment. Confirm and then your environment
 						should be created! The command prompt prefix should now be the name of your environment (<code>biotools</code> in this example).
-					</p>							
+					</p>
+
+					<p>
+						In the event that you encounter Permission denied or similar errors when creating an environment, you may provide the full path to
+						the environment you want to create as the name:
+					</p>
+
+					<code>conda	create --name /path/to/anaconda3/envs/biotools</code>			
 					
 
 					<a name="env-start"></a>
@@ -221,6 +228,9 @@
 
 					<p>Install as much software as you like! It should all be self-contained within this environment.</p>
 
+					<p>Note that if you need a specific version of a package installed, you can specify the version number when installing as follows:</p>
+
+					<code>conda install -c bioconda samtools=1.9</code>
 
 					<a name="env-exit"></a>
 					<div id="section_sep_top"></div>	
@@ -317,7 +327,7 @@
 			<div id="footer_text">
 				<center>Site designed and maintained by <a href="https://gwct.github.io" target="_blank">Gregg Thomas</a> | 
 					<!-- email: <img class="pure_img" src="img/contact/cont-footer.png"> |  -->
-					<a href="https://purecss.io/" target="_blank">Pure CSS</a> | Page built: 10/31/2020 17:55:10 MDT</center>
+					<a href="https://purecss.io/" target="_blank">Pure CSS</a> | Page built: 06/08/2021 20:20:21 MDT</center>
 			</div>
 		</div>
 	</div>
