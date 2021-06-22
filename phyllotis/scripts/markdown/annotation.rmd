@@ -1,5 +1,5 @@
 ---
-title: "Phllloyis xanthopygus annotation stats"
+title: "Phyllotis xanthopygus annotation stats"
 date: "`r format(Sys.time(), '%m/%d/%Y %H:%M:%S %Z')`"
 output:
   rmdformats::readthedown:
