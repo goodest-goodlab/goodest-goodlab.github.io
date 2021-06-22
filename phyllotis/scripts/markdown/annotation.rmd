@@ -1,0 +1,191 @@
+---
+title: "Phllloyis xanthopygus annotation stats"
+date: "`r format(Sys.time(), '%m/%d/%Y %H:%M:%S %Z')`"
+output:
+  rmdformats::readthedown:
+    highlight: kate
+  #html_document:
+    #includes:
+      #in_header: '../html-chunks/rmd_header.html'
+    # df_print: paged
+    # toc: true
+    # toc_float:
+    #   collapsed: false
+    #   smooth_scroll: false
+    code_folding: hide
+---
+
+```{r setup, warning=FALSE, message=FALSE}
+#knitr::opts_chunk$set(echo = FALSE)
+#this.dir <- dirname(parent.frame(2)$ofile)
+#setwd(this.dir)
+
+library(ggplot2)
+library(ggbeeswarm)
+library(cowplot)
+library(ggrepel)
+library(ggsignif)
+library(kableExtra)
+library(dplyr)
+#library(plyr)
+#library(colorspace)
+#library(kableExtra)
+source("../lib/design.r")
+
+
+
+#htmltools::includeHTML("../html-chunks/nav.html")
+```
+
+[< Back Home](https://goodest-goodlab.github.io/phyllotis/index.html)
+
+```
+All summaries from file: final_annot_from_nrvertebrata.gff
+All comparisons to hifiasm assembly: tom-uni1803-mb-hirise-6427t_01-19-2021__final_assembly.fasta
+```
+
+# Feature counts
+
+```{r fig1, warning=FALSE, out.width="100%", fig.align="center"}
+countfile = "../../data/pxan-feature-counts.csv"
+
+counts = read.csv(countfile, header=T, comment.char="#")
+
+counts %>% kable(caption="Feature counts for P. xanthopygus") %>% kable_styling(bootstrap_options=c("striped", "condensed", "responsive"), full_width=F)
+
+fcounts_p = ggplot(counts, aes(x=feature.type, y=count)) +
+  geom_bar(position="dodge", stat="identity", fill=corecol(numcol=1, pal="wilke", offset=4)) +
+  scale_y_continuous(expand=c(0,0)) +
+  xlab("Feature type") +
+  ylab("# features") +
+  bartheme() +
+  theme(axis.text.x=element_text(angle=25, hjust=1))
+
+print(fcounts_p)
+```
+
+# Transcript lengths (< 100000bp)
+
+```{r fig2, warning=FALSE, out.width="100%", fig.align="center"}
+trancsripts_file = "../../data/pxan-transcripts.tab"
+
+transcripts = read.csv(trancsripts_file, header=T, sep="\t", comment.char="#")
+transcripts$length = transcripts$end - transcripts$start
+
+transcripts = subset(transcripts, length<100000)
+
+transcript_len_p = ggplot(transcripts, aes(x=length)) +
+  geom_histogram(fill=corecol(numcol=1, pal="wilke", offset=5), color="#ececec", bins=100) +
+  scale_x_continuous(expand=c(0,0)) +
+  scale_y_continuous(expand=c(0,0)) +
+  bartheme()
+print(transcript_len_p)
+```
+
+# Transcript lengths (< 100000bp) vs. scaffold lengths
+
+```{r fig3, warning=FALSE, message=FALSE, out.width="100%", fig.align="center"}
+asm_stats = read.table("../../data/tom-uni1803-mb-hirise-6427t_01-19-2021__final_assembly.fasta.fai")
+names(asm_stats) = c("scaffold", "length", "offset", "linebases", "linewidth")
+scaffs_over_10mb_ordered = c("Scaffold_1", "Scaffold_2", "Scaffold_3", "Scaffold_4", "Scaffold_5", "Scaffold_6", "Scaffold_7", "Scaffold_8", "Scaffold_9", "Scaffold_10", "Scaffold_11", "Scaffold_12", "Scaffold_13", "Scaffold_14", "Scaffold_15", "Scaffold_16", "Scaffold_17", "Scaffold_18", "Scaffold_19", "Scaffold_20", "Scaffold_22")
+
+
+#asm_stats = subset(asm_stats, length >= 10000000)
+
+transcripts_scaff_counts = transcripts %>% group_by(chr) %>% summarize(num.transcripts=n(), num.bases=sum(length))
+names(transcripts_scaff_counts)[1] = "scaffold"
+
+transcripts_per_scaff = merge(asm_stats, transcripts_scaff_counts, by="scaffold")
+
+transcripts_scaff_p = ggplot(transcripts_per_scaff, aes(x=length, y=num.transcripts)) +
+  geom_point(size=4, color=corecol(numcol=1), alpha=0.7) +
+  geom_smooth(method="lm", se=F, linetype="dashed", size=1, color="#999999") +
+  #geom_text_repel(aes(label=scaffold),hjust=0,vjust=0) +
+  xlab("Scaffold length") +
+  ylab("# of transcripts") +
+  bartheme() + 
+  theme(axis.text.x=element_text(angle=25, hjust=1))
+#print(transcripts_scaff_p)
+
+bases_scaff_p = ggplot(transcripts_per_scaff, aes(x=length, y=num.bases)) +
+  geom_point(size=4, color=corecol(numcol=1), alpha=0.7) +
+  geom_smooth(method="lm", se=F, linetype="dashed", size=1, color="#999999") +
+  #geom_text_repel(aes(label=chrome),hjust=0,vjust=0) +
+  xlab("Scaffold length") +
+  ylab("# of bases in transcripts") +
+  bartheme() +
+  theme(axis.text.x=element_text(angle=25, hjust=1))
+#print(bases_scaff_p)
+                 
+p = plot_grid(transcripts_scaff_p, bases_scaff_p, ncol=2, labels=c("A","B"), label_size=16, align='vh')
+print(p)
+```
+
+# % of bases in transcripts (< 100000bp) by scaffold
+
+For the 22 scaffolds longer than 10Mb
+Scaffold_21 has no transcripts.
+
+```{r fig4, warning=FALSE, out.width="100%", fig.align="center"}
+transcripts_per_scaff$perc.bases = transcripts_per_scaff$num.bases / transcripts_per_scaff$length * 100
+transcripts_per_scaff = subset(transcripts_per_scaff, length >= 10000000)
+transcripts_per_scaff$scaffold = gsub("(.+?)(\\__.*)", "\\1", transcripts_per_scaff$scaffold)
+
+transcripts_per_scaff$scaffold = factor(transcripts_per_scaff$scaffold, levels=scaffs_over_10mb_ordered)
+
+avg_p = ggplot(transcripts_per_scaff, aes(x=scaffold, y=perc.bases)) +
+  geom_hline(yintercept=mean(transcripts_per_scaff$perc.bases), size=1.5, linetype="dashed", color="#d3d3d3")
+  #geom_hline(yintercept=median(in_data$X..bases.in.genes.1), size=1.5, linetype="dashed", color="#999999")
+# Start plot of avg. distance to random wRF per chrome
+
+k = 1
+for(scaff in levels(transcripts_per_scaff$scaffold)){
+  #print(chrome)
+  #print(k)
+  avg_p = avg_p + geom_segment(x=k, y=0, xend=k, yend=transcripts_per_scaff$perc.bases[transcripts_per_scaff$scaffold==scaff], color="#666666", linetype="dotted")
+  k = k + 1
+}
+# Add the dotted lines for each chrome
+
+avg_p = avg_p + geom_point(size=4, color="#920000") +
+  #geom_text(data=blah, aes(x=20.4, y=avg_nonsig_chr-1, label=paste("Avg. = ", avg_nonsig_chr, "Mb", sep="")),  size=4, color="#333333") +
+  #geom_text(data=blah, aes(x=20.4, y=med_nonsig_chr+1, label=paste("Median = ", med_nonsig_chr, "Mb", sep="")),  size=4, color="#333333") +
+  xlab("Chromosome") +
+  ylab("% of bases in a gene") +
+  scale_y_continuous(expand=c(0,0), limits=c(0,100)) +
+  bartheme() +
+  theme(axis.text.x=element_text(angle=45, hjust=1))
+print(avg_p)
+```
+
+# Transcript length (< 100000bp) distributions by scaffold
+
+For the 22 scaffolds longer than 10Mb
+Scaffold_21 has no transcripts.
+
+```{r fig5, warning=FALSE, out.width="100%", fig.align="center"}
+transcripts = subset(transcripts, length <= 100000)
+names(transcripts)[3] = "scaffold"
+transcripts$scaffold = gsub("(.+?)(\\__.*)", "\\1", transcripts$scaffold)
+transcripts = subset(transcripts, scaffold %in% scaffs_over_10mb_ordered)
+transcripts$scaffold = factor(transcripts$scaffold, levels=scaffs_over_10mb_ordered)
+
+len_p = ggplot(transcripts, aes(x=scaffold, y=length, fill=scaffold)) +
+  geom_quasirandom(size=1, alpha=0.7, width=0.25, color="#d3d3d3") +
+  geom_boxplot(outlier.shape=NA, alpha=0.7, width=0.5) +
+  #geom_signif(comparisons=x_comps, map_signif_level=TRUE, textsize=4, size=1, step_increase=0.12, margin_top=0.1) +
+  xlab("Scaffold") +
+  ylab("Transcript length (bp)") +
+  bartheme() +
+  theme(legend.position="none",
+        axis.text.x=element_text(angle=45, hjust=1))
+
+print(len_p)
+```
+
+[< Back Home](https://goodest-goodlab.github.io/phyllotis/index.html)
+
+```{r footer}
+cat("Page last updated:", format(Sys.time(), "%m/%d/%Y %H:%M:%S %Z"))
+htmltools::includeHTML("../html-chunks/rmd_footer.html")
+```

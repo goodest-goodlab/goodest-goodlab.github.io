@@ -1,0 +1,21 @@
+# GFF/GTF feature counting.
+# PYTHON VERSION: 3.9.4
+# Script call:    /home/gt156213e/bin/core/gxf_feature_counter.py -i final_annot_from_nrvertebrata.gff -o pxan-feature-counts.csv
+# Runtime:        06/22/2021 10:52:31
+# ----------------
+# Input file:            final_annot_from_nrvertebrata.gff
+# Output file:           pxan-feature-counts.csv
+# ----------------
+# 06.22.2021 | 10:52:31 Detecting compression...
+# 06.22.2021 | 10:52:31 Counting features...
+# Features types read:   5
+# Total features read:   299685
+# ----------------
+# 06.22.2021 | 10:52:32 Writing output...
+# ----------------
+feature type,count,avg length
+mRNA,19179,10965.04468429011
+exon,127488,233.58780434236948
+CDS,120731,151.8119455649336
+five_prime_UTR,18909,119.48611772171982
+three_prime_UTR,13378,685.180221258783
