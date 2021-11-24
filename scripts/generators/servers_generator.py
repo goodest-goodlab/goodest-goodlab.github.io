@@ -4,8 +4,8 @@
 ############################################################
 
 import sys, os
-sys.path.append('..')
-import lib.read_chunks as RC
+sys.path.append(os.path.abspath('../lib/'))
+import read_chunks as RC
 
 ######################
 # HTML template
@@ -131,7 +131,7 @@ html_template = """
 							<img class="pure-img" id="server_img" src="img/logo/rat.png">
 						</div>
 						<div id="server_desc">
-							<h1>lepus.dbs.umt.edu:22</h1>
+							<h1>rattus.dbs.umt.edu:22</h1>
 
 							<table id="sum-tab">
 								<tr><td class="td-label">Access: </td><td>Admin FTP access only</td></tr>

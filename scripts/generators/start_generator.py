@@ -4,8 +4,8 @@
 ############################################################
 
 import sys, os
-sys.path.append('..')
-import lib.read_chunks as RC
+sys.path.append(os.path.abspath('../lib/'))
+import read_chunks as RC
 
 ######################
 # HTML template
@@ -81,7 +81,7 @@ html_template = """
 
 					<p>Accept any fingerprint prompts and enter your password when prompted and you should be good to go!</p>
 
-					<p>Explicitly, if I wanted to log in to the head node, I would type:</p>
+					<p>Explicitly, if I wanted to log in to the login node, I would type:</p>
 
 					<code>ssh gt156213e@login.gscc.umt.edu</code>
 
